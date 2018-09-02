@@ -19,19 +19,19 @@ class JsonWriter {
     return JsonWriter._(json.decode(source) as Map<String, Object>);
   }
 
-  void writeObject(String key, Object value) {
+  void writeObject(String key, Map<String, Object> value) {
     assert(key != null);
 
     _json[key] = value;
   }
 
-  void writeObjectList(String key, List<Object> value) {
+  void writeObjectList(String key, List<Map<String, Object>> value) {
     assert(key != null);
 
     _json[key] = value;
   }
 
-  void writeObjectWith<V>(String key, V value, Object valueMapper(V value)) {
+  void writeObjectWith<V>(String key, V value, Map<String, Object> valueMapper(V value)) {
     assert(key != null);
     assert(valueMapper != null);
 
@@ -42,7 +42,7 @@ class JsonWriter {
     }
   }
 
-  void writeObjectListWith<V>(String key, List<V> value, Object valueMapper(V value)) {
+  void writeObjectListWith<V>(String key, List<V> value, Map<String, Object> valueMapper(V value)) {
     assert(key != null);
     assert(valueMapper != null);
 

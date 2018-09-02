@@ -19,23 +19,29 @@ class JsonReader {
     return JsonReader._(json.decode(source) as Map<String, Object>);
   }
 
-  Object readObject(String key) {
+  Map<String, Object> readObject(String key) {
     assert(key != null);
 
-    return _json[key];
+    return _json[key] as Map<String, Object>;
   }
 
   List<Object> readObjectList(String key) {
     assert(key != null);
 
-    return _json[key] as List<Object>;
+    final value = _json[key] as List<Object>;
+
+    if (value != null) {
+      return value.cast<Map<String, Object>>();
+    } else {
+      return null;
+    }
   }
 
-  V readObjectWith<V>(String key, V valueMapper(Object value)) {
+  V readObjectWith<V>(String key, V valueMapper(Map<String, Object> value)) {
     assert(key != null);
     assert(valueMapper != null);
 
-    final value = _json[key];
+    final value = _json[key] as Map<String, Object>;
 
     if (value != null) {
       return valueMapper(value);
@@ -44,14 +50,14 @@ class JsonReader {
     }
   }
 
-  List<V> readObjectListWith<V>(String key, V valueMapper(Object value)) {
+  List<V> readObjectListWith<V>(String key, V valueMapper(Map<String, Object> value)) {
     assert(key != null);
     assert(valueMapper != null);
 
     final value = _json[key] as List<Object>;
 
     if (value != null) {
-      return value.map(valueMapper).toList();
+      return value.map((v) => valueMapper(v as Map<String, Object>)).toList();
     } else {
       return null;
     }
