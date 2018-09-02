@@ -4,7 +4,6 @@ description: Converts objects to json and formurlencoded maps
 
 authors:
 - Alexander Polyankin <alexander.polyankin@team.wrike.com>
-- Max Grebenschikov <maxim.grebenshikov@team.wrike.com>
 
 homepage: https://github.com/wrike/remap
 
