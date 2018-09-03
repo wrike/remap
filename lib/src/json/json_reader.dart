@@ -195,6 +195,18 @@ class JsonReader {
     return _data[key] as Map<String, Object>;
   }
 
+  List<Map<String, Object>> readMapList(String key) {
+    assert(key != null);
+
+    final value = _data[key] as List<Object>;
+
+    if (value != null) {
+      return value.map((v) => v as Map<String, Object>).toList();
+    } else {
+      return null;
+    }
+  }
+
   V readMapWith<V>(String key, V valueMapper(Map<String, Object> value)) {
     assert(key != null);
     assert(valueMapper != null);
@@ -203,6 +215,19 @@ class JsonReader {
 
     if (value != null) {
       return valueMapper(value);
+    } else {
+      return null;
+    }
+  }
+
+  List<V> readMapListWith<V>(String key, V valueMapper(Map<String, Object> value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    final value = _data[key] as List<Object>;
+
+    if (value != null) {
+      return value.map((v) => valueMapper(v as Map<String, Object>)).toList();
     } else {
       return null;
     }
