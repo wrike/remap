@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 class JsonReader {
-  final Map<String, Object> _json;
+  final Map<String, Object> _data;
 
-  JsonReader._(this._json) {
+  JsonReader._(this._data) {
     assert(json != null);
   }
 
@@ -11,8 +11,8 @@ class JsonReader {
     return JsonReader._({});
   }
 
-  factory JsonReader.fromJson(Map<String, Object> json) {
-    return JsonReader._(json);
+  factory JsonReader.fromJson(Map<String, Object> data) {
+    return JsonReader._(data);
   }
 
   factory JsonReader.fromJsonString(String source) {
@@ -22,20 +22,20 @@ class JsonReader {
   Object readObject(String key) {
     assert(key != null);
 
-    return _json[key];
+    return _data[key];
   }
 
   List<Object> readObjectList(String key) {
     assert(key != null);
 
-    return _json[key] as List<Object>;
+    return _data[key] as List<Object>;
   }
 
   V readObjectWith<V>(String key, V valueMapper(Object value)) {
     assert(key != null);
     assert(valueMapper != null);
 
-    final value = _json[key];
+    final value = _data[key];
 
     if (value != null) {
       return valueMapper(value);
@@ -48,7 +48,7 @@ class JsonReader {
     assert(key != null);
     assert(valueMapper != null);
 
-    final value = _json[key] as List<Object>;
+    final value = _data[key] as List<Object>;
 
     if (value != null) {
       return value.map(valueMapper).toList();
@@ -60,13 +60,13 @@ class JsonReader {
   int readInt(String key) {
     assert(key != null);
 
-    return _json[key] as int;
+    return _data[key] as int;
   }
 
   List<int> readIntList(String key) {
     assert(key != null);
 
-    final value = _json[key] as List<Object>;
+    final value = _data[key] as List<Object>;
 
     if (value != null) {
       return value.map((v) => v as int).toList();
@@ -79,7 +79,7 @@ class JsonReader {
     assert(key != null);
     assert(valueMapper != null);
 
-    final value = _json[key] as int;
+    final value = _data[key] as int;
 
     if (value != null) {
       return valueMapper(value);
@@ -92,7 +92,7 @@ class JsonReader {
     assert(key != null);
     assert(valueMapper != null);
 
-    final value = _json[key] as List<Object>;
+    final value = _data[key] as List<Object>;
 
     if (value != null) {
       return value.map((v) => valueMapper(v as int)).toList();
@@ -104,13 +104,13 @@ class JsonReader {
   bool readBoolean(String key) {
     assert(key != null);
 
-    return _json[key] as bool;
+    return _data[key] as bool;
   }
 
   List<bool> readBooleanList(String key) {
     assert(key != null);
 
-    final value = _json[key] as List<Object>;
+    final value = _data[key] as List<Object>;
 
     if (value != null) {
       return value.map((v) => v as bool).toList();
@@ -123,7 +123,7 @@ class JsonReader {
     assert(key != null);
     assert(valueMapper != null);
 
-    final value = _json[key] as bool;
+    final value = _data[key] as bool;
 
     if (value != null) {
       return valueMapper(value);
@@ -136,7 +136,7 @@ class JsonReader {
     assert(key != null);
     assert(valueMapper != null);
 
-    final value = _json[key] as List<Object>;
+    final value = _data[key] as List<Object>;
 
     if (value != null) {
       return value.map((v) => valueMapper(v as bool)).toList();
@@ -148,13 +148,13 @@ class JsonReader {
   String readString(String key) {
     assert(key != null);
 
-    return _json[key] as String;
+    return _data[key] as String;
   }
 
   List<String> readStringList(String key) {
     assert(key != null);
 
-    final value = _json[key] as List<Object>;
+    final value = _data[key] as List<Object>;
 
     if (value != null) {
       return value.map((v) => v as String).toList();
@@ -167,7 +167,7 @@ class JsonReader {
     assert(key != null);
     assert(valueMapper != null);
 
-    final value = _json[key] as String;
+    final value = _data[key] as String;
 
     if (value != null) {
       return valueMapper(value);
@@ -180,7 +180,7 @@ class JsonReader {
     assert(key != null);
     assert(valueMapper != null);
 
-    final value = _json[key] as List<Object>;
+    final value = _data[key] as List<Object>;
 
     if (value != null) {
       return value.map((v) => valueMapper(v as String)).toList();
@@ -192,14 +192,14 @@ class JsonReader {
   Map<String, Object> readMap(String key) {
     assert(key != null);
 
-    return _json[key] as Map<String, Object>;
+    return _data[key] as Map<String, Object>;
   }
 
   V readMapWith<V>(String key, V valueMapper(Map<String, Object> value)) {
     assert(key != null);
     assert(valueMapper != null);
 
-    final value = _json[key] as Map<String, Object>;
+    final value = _data[key] as Map<String, Object>;
 
     if (value != null) {
       return valueMapper(value);
@@ -209,10 +209,10 @@ class JsonReader {
   }
 
   Map<String, Object> toJson() {
-    return _json;
+    return _data;
   }
 
   String toJsonString() {
-    return json.encode(_json);
+    return json.encode(_data);
   }
 }
