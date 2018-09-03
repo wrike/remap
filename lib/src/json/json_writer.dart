@@ -1,18 +1,18 @@
 import 'dart:convert';
 
 class JsonWriter {
-  final Map<String, Object> _json;
+  final Map<String, Object> _data;
 
-  JsonWriter._(this._json) {
-    assert(json != null);
+  JsonWriter._(this._data) {
+    assert(_data != null);
   }
 
   factory JsonWriter() {
     return JsonWriter._({});
   }
 
-  factory JsonWriter.fromJson(Map<String, Object> json) {
-    return JsonWriter._(json);
+  factory JsonWriter.fromJson(Map<String, Object> data) {
+    return JsonWriter._(data);
   }
 
   factory JsonWriter.fromJsonString(String source) {
@@ -22,13 +22,13 @@ class JsonWriter {
   void writeObject(String key, Object value) {
     assert(key != null);
 
-    _json[key] = value;
+    _data[key] = value;
   }
 
   void writeObjectList(String key, List<Object> value) {
     assert(key != null);
 
-    _json[key] = value;
+    _data[key] = value;
   }
 
   void writeObjectWith<V>(String key, V value, Object valueMapper(V value)) {
@@ -36,9 +36,9 @@ class JsonWriter {
     assert(valueMapper != null);
 
     if (value != null) {
-      _json[key] = valueMapper(value);
+      _data[key] = valueMapper(value);
     } else {
-      _json[key] = null;
+      _data[key] = null;
     }
   }
 
@@ -47,22 +47,22 @@ class JsonWriter {
     assert(valueMapper != null);
 
     if (value != null) {
-      _json[key] = value.map(valueMapper).toList();
+      _data[key] = value.map(valueMapper).toList();
     } else {
-      _json[key] = null;
+      _data[key] = null;
     }
   }
 
   void writeInt(String key, int value) {
     assert(key != null);
 
-    _json[key] = value;
+    _data[key] = value;
   }
 
   void writeIntList(String key, List<int> value) {
     assert(key != null);
 
-    _json[key] = value;
+    _data[key] = value;
   }
 
   void writeIntWith<V>(String key, V value, int valueMapper(V value)) {
@@ -70,9 +70,9 @@ class JsonWriter {
     assert(valueMapper != null);
 
     if (value != null) {
-      _json[key] = valueMapper(value);
+      _data[key] = valueMapper(value);
     } else {
-      _json[key] = null;
+      _data[key] = null;
     }
   }
 
@@ -81,22 +81,22 @@ class JsonWriter {
     assert(valueMapper != null);
 
     if (value != null) {
-      _json[key] = value.map(valueMapper).toList();
+      _data[key] = value.map(valueMapper).toList();
     } else {
-      _json[key] = null;
+      _data[key] = null;
     }
   }
 
   void writeBoolean(String key, bool value) {
     assert(key != null);
 
-    _json[key] = value;
+    _data[key] = value;
   }
 
   void writeBooleanList(String key, List<bool> value) {
     assert(key != null);
 
-    _json[key] = value;
+    _data[key] = value;
   }
 
   void writeBooleanWith<V>(String key, V value, bool valueMapper(V value)) {
@@ -104,9 +104,9 @@ class JsonWriter {
     assert(valueMapper != null);
 
     if (value != null) {
-      _json[key] = valueMapper(value);
+      _data[key] = valueMapper(value);
     } else {
-      _json[key] = null;
+      _data[key] = null;
     }
   }
 
@@ -115,22 +115,22 @@ class JsonWriter {
     assert(valueMapper != null);
 
     if (value != null) {
-      _json[key] = value.map(valueMapper).toList();
+      _data[key] = value.map(valueMapper).toList();
     } else {
-      _json[key] = null;
+      _data[key] = null;
     }
   }
 
   void writeString(String key, String value) {
     assert(key != null);
 
-    _json[key] = value;
+    _data[key] = value;
   }
 
   void writeStringList(String key, List<String> value) {
     assert(key != null);
 
-    _json[key] = value;
+    _data[key] = value;
   }
 
   void writeStringWith<V>(String key, V value, String valueMapper(V value)) {
@@ -138,9 +138,9 @@ class JsonWriter {
     assert(valueMapper != null);
 
     if (value != null) {
-      _json[key] = valueMapper(value);
+      _data[key] = valueMapper(value);
     } else {
-      _json[key] = null;
+      _data[key] = null;
     }
   }
 
@@ -149,16 +149,16 @@ class JsonWriter {
     assert(valueMapper != null);
 
     if (value != null) {
-      _json[key] = value.map(valueMapper).toList();
+      _data[key] = value.map(valueMapper).toList();
     } else {
-      _json[key] = null;
+      _data[key] = null;
     }
   }
 
   void writeMap(String key, Map<String, Object> value) {
     assert(key != null);
 
-    _json[key] = value;
+    _data[key] = value;
   }
 
   void writeMapWith<V>(String key, V value, Map<String, Object> valueMapper(V value)) {
@@ -166,17 +166,17 @@ class JsonWriter {
     assert(valueMapper != null);
 
     if (value != null) {
-      _json[key] = valueMapper(value);
+      _data[key] = valueMapper(value);
     } else {
-      _json[key] = null;
+      _data[key] = null;
     }
   }
 
   Map<String, Object> toJson() {
-    return _json;
+    return _data;
   }
 
   String toJsonString() {
-    return json.encode(_json);
+    return json.encode(_data);
   }
 }
