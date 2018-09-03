@@ -41,6 +41,48 @@ class FormUrlEncodedWriter {
     }
   }
 
+  void writeDouble(String key, double value) {
+    assert(key != null);
+
+    if (value != null) {
+      _data[key] = value.toString();
+    } else {
+      _data[key] = null;
+    }
+  }
+
+  void writeDoubleWith<V>(String key, V value, double valueMapper(V value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    if (value != null) {
+      _data[key] = valueMapper(value).toString();
+    } else {
+      _data[key] = null;
+    }
+  }
+
+  void writeNumber(String key, num value) {
+    assert(key != null);
+
+    if (value != null) {
+      _data[key] = value.toString();
+    } else {
+      _data[key] = null;
+    }
+  }
+
+  void writeNumberWith<V>(String key, V value, num valueMapper(V value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    if (value != null) {
+      _data[key] = valueMapper(value).toString();
+    } else {
+      _data[key] = null;
+    }
+  }
+
   void writeBoolean(String key, bool value) {
     assert(key != null);
 

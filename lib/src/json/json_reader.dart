@@ -101,6 +101,94 @@ class JsonReader {
     }
   }
 
+  double readDouble(String key) {
+    assert(key != null);
+
+    return _data[key] as double;
+  }
+
+  List<double> readDoubleList(String key) {
+    assert(key != null);
+
+    final value = _data[key] as List<Object>;
+
+    if (value != null) {
+      return value.map((v) => v as double).toList();
+    } else {
+      return null;
+    }
+  }
+
+  V readDoubleWith<V>(String key, V valueMapper(double value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    final value = _data[key] as double;
+
+    if (value != null) {
+      return valueMapper(value);
+    } else {
+      return null;
+    }
+  }
+
+  List<V> readDoubleListWith<V>(String key, V valueMapper(double value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    final value = _data[key] as List<Object>;
+
+    if (value != null) {
+      return value.map((v) => valueMapper(v as double)).toList();
+    } else {
+      return null;
+    }
+  }
+
+  num readNumber(String key) {
+    assert(key != null);
+
+    return _data[key] as num;
+  }
+
+  List<num> readNumberList(String key) {
+    assert(key != null);
+
+    final value = _data[key] as List<Object>;
+
+    if (value != null) {
+      return value.map((v) => v as num).toList();
+    } else {
+      return null;
+    }
+  }
+
+  V readNumberWith<V>(String key, V valueMapper(num value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    final value = _data[key] as num;
+
+    if (value != null) {
+      return valueMapper(value);
+    } else {
+      return null;
+    }
+  }
+
+  List<V> readNumberListWith<V>(String key, V valueMapper(num value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    final value = _data[key] as List<Object>;
+
+    if (value != null) {
+      return value.map((v) => valueMapper(v as num)).toList();
+    } else {
+      return null;
+    }
+  }
+
   bool readBoolean(String key) {
     assert(key != null);
 

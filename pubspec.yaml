@@ -1,11 +1,14 @@
 name: remap
 version: 1.0.0
-description: Converts objects to json and formurlencoded maps
+description: Map-based readers and writers for json and formurlencoded data
 
 authors:
 - Alexander Polyankin <alexander.polyankin@team.wrike.com>
 
-homepage: https://github.com/wrike/remap
+homepage: https://github.com/wrike/memoize_dart
 
 environment:
   sdk: '>=2.0.0-dev <3.0.0'
+
+dev_dependencies:
+  test: '^1.0.0'

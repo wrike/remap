@@ -45,6 +45,56 @@ class FormUrlEncodedReader {
     }
   }
 
+  double readDouble(String key) {
+    assert(key != null);
+
+    final value = _data[key];
+
+    if (value != null) {
+      return double.parse(value);
+    } else {
+      return null;
+    }
+  }
+
+  V readDoubleWith<V>(String key, V valueMapper(double value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    final value = _data[key];
+
+    if (value != null) {
+      return valueMapper(double.parse(value));
+    } else {
+      return null;
+    }
+  }
+
+  num readNumber(String key) {
+    assert(key != null);
+
+    final value = _data[key];
+
+    if (value != null) {
+      return num.parse(value);
+    } else {
+      return null;
+    }
+  }
+
+  V readNumberWith<V>(String key, V valueMapper(num value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    final value = _data[key];
+
+    if (value != null) {
+      return valueMapper(num.parse(value));
+    } else {
+      return null;
+    }
+  }
+
   bool readBoolean(String key) {
     assert(key != null);
 

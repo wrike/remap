@@ -87,6 +87,74 @@ class JsonWriter {
     }
   }
 
+  void writeDouble(String key, double value) {
+    assert(key != null);
+
+    _data[key] = value;
+  }
+
+  void writeDoubleList(String key, List<double> value) {
+    assert(key != null);
+
+    _data[key] = value;
+  }
+
+  void writeDoubleWith<V>(String key, V value, double valueMapper(V value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    if (value != null) {
+      _data[key] = valueMapper(value);
+    } else {
+      _data[key] = null;
+    }
+  }
+
+  void writeDoubleListWith<V>(String key, List<V> value, double valueMapper(V value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    if (value != null) {
+      _data[key] = value.map(valueMapper).toList();
+    } else {
+      _data[key] = null;
+    }
+  }
+
+  void writeNumber(String key, num value) {
+    assert(key != null);
+
+    _data[key] = value;
+  }
+
+  void writeNumberList(String key, List<num> value) {
+    assert(key != null);
+
+    _data[key] = value;
+  }
+
+  void writeNumberWith<V>(String key, V value, num valueMapper(V value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    if (value != null) {
+      _data[key] = valueMapper(value);
+    } else {
+      _data[key] = null;
+    }
+  }
+
+  void writeNumberListWith<V>(String key, List<V> value, num valueMapper(V value)) {
+    assert(key != null);
+    assert(valueMapper != null);
+
+    if (value != null) {
+      _data[key] = value.map(valueMapper).toList();
+    } else {
+      _data[key] = null;
+    }
+  }
+
   void writeBoolean(String key, bool value) {
     assert(key != null);
 
