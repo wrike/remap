@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:convert' show jsonEncode, jsonDecode;
 
 class JsonWriter {
   final Map<String, Object> _data;
@@ -11,12 +11,12 @@ class JsonWriter {
     return JsonWriter._({});
   }
 
-  factory JsonWriter.fromJson(Map<String, Object> data) {
-    return JsonWriter._(data);
+  factory JsonWriter.fromJson(Map<String, Object> json) {
+    return JsonWriter._(json);
   }
 
   factory JsonWriter.fromJsonString(String source) {
-    return JsonWriter._(json.decode(source) as Map<String, Object>);
+    return JsonWriter._(jsonDecode(source) as Map<String, Object>);
   }
 
   void writeObject(String key, Object value) {
@@ -177,6 +177,6 @@ class JsonWriter {
   }
 
   String toJsonString() {
-    return json.encode(_data);
+    return jsonEncode(_data);
   }
 }

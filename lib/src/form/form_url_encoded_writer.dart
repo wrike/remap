@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:convert' show jsonEncode;
 
 class FormUrlEncodedWriter {
   final Map<String, String> _data;
@@ -80,7 +80,7 @@ class FormUrlEncodedWriter {
   void writeJsonString(String key, Object value) {
     assert(key != null);
 
-    _data[key] = json.encode(value);
+    _data[key] = jsonEncode(value);
   }
 
   void writeJsonStringWith<V>(String key, V value, Object valueMapper(V value)) {
@@ -88,7 +88,7 @@ class FormUrlEncodedWriter {
     assert(valueMapper != null);
 
     if (value != null) {
-      _data[key] = json.encode(valueMapper(value));
+      _data[key] = jsonEncode(valueMapper(value));
     } else {
       _data[key] = null;
     }

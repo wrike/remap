@@ -1,22 +1,22 @@
-import 'dart:convert';
+import 'dart:convert' show jsonEncode, jsonDecode;
 
 class JsonReader {
   final Map<String, Object> _data;
 
   JsonReader._(this._data) {
-    assert(json != null);
+    assert(_data != null);
   }
 
   factory JsonReader() {
     return JsonReader._({});
   }
 
-  factory JsonReader.fromJson(Map<String, Object> data) {
-    return JsonReader._(data);
+  factory JsonReader.fromJson(Map<String, Object> json) {
+    return JsonReader._(json);
   }
 
   factory JsonReader.fromJsonString(String source) {
-    return JsonReader._(json.decode(source) as Map<String, Object>);
+    return JsonReader._(jsonDecode(source) as Map<String, Object>);
   }
 
   Object readObject(String key) {
@@ -238,6 +238,6 @@ class JsonReader {
   }
 
   String toJsonString() {
-    return json.encode(_data);
+    return jsonEncode(_data);
   }
 }

@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:convert' show jsonDecode;
 
 class FormUrlEncodedReader {
   final Map<String, String> _data;
@@ -92,7 +92,7 @@ class FormUrlEncodedReader {
   Object readJsonString(String key) {
     assert(key != null);
 
-    return json.decode(_data[key]);
+    return jsonDecode(_data[key]);
   }
 
   V readJsonStringWith<V>(String key, V valueMapper(Object value)) {
@@ -102,7 +102,7 @@ class FormUrlEncodedReader {
     final value = _data[key];
 
     if (value != null) {
-      return valueMapper(json.decode(value));
+      return valueMapper(jsonDecode(value));
     } else {
       return null;
     }
