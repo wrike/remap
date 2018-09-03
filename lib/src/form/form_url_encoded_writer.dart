@@ -8,11 +8,11 @@ class FormUrlEncodedWriter {
   }
 
   factory FormUrlEncodedWriter() {
-    return FormUrlEncodedWriter._({});
+    return new FormUrlEncodedWriter._({});
   }
 
   factory FormUrlEncodedWriter.fromFormUrlEncoded(Map<String, String> data) {
-    return FormUrlEncodedWriter._(data);
+    return new FormUrlEncodedWriter._(data);
   }
 
   factory FormUrlEncodedWriter.fromFormUrlEncodedString(String source) {
