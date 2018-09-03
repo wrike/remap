@@ -1,6 +1,6 @@
 name: remap
 version: 1.0.0
-description: Map-based readers and writers for json and formurlencoded data
+description: Map-based readers and writers for json and formurlencoded serialization and deserialization.
 
 authors:
 - Alexander Polyankin <alexander.polyankin@team.wrike.com>
