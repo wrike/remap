@@ -4,6 +4,7 @@ description: Map-based readers and writers for json and formurlencoded serializa
 
 authors:
 - Alexander Polyankin <alexander.polyankin@team.wrike.com>
+- Max Grebenschikov <maxim.grebenshikov@team.wrike.com>
 
 homepage: https://github.com/wrike/memoize_dart
 
