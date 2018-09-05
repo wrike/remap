@@ -1,5 +1,5 @@
 name: remap
-version: 1.0.0
+version: 1.0.1
 description: Map-based readers and writers for json and formurlencoded serialization and deserialization.
 
 authors:
