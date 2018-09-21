@@ -2,6 +2,8 @@
 
 `Map`-based readers and writers for json and formurlencoded serialization and deserialization.
 
+[API docs](https://pub.dartlang.org/documentation/remap/latest/)
+
 ## Examples
 
 Use `JsonReader` and `JsonWriter` for json serialization and deserialization:
