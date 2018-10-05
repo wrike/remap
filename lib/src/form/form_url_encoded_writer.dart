@@ -25,8 +25,6 @@ class FormUrlEncodedWriter {
 
     if (value != null) {
       _data[key] = value.toString();
-    } else {
-      _data[key] = null;
     }
   }
 
@@ -36,8 +34,6 @@ class FormUrlEncodedWriter {
 
     if (value != null) {
       _data[key] = valueMapper(value).toString();
-    } else {
-      _data[key] = null;
     }
   }
 
@@ -46,8 +42,6 @@ class FormUrlEncodedWriter {
 
     if (value != null) {
       _data[key] = value.toString();
-    } else {
-      _data[key] = null;
     }
   }
 
@@ -57,8 +51,6 @@ class FormUrlEncodedWriter {
 
     if (value != null) {
       _data[key] = valueMapper(value).toString();
-    } else {
-      _data[key] = null;
     }
   }
 
@@ -67,8 +59,6 @@ class FormUrlEncodedWriter {
 
     if (value != null) {
       _data[key] = value.toString();
-    } else {
-      _data[key] = null;
     }
   }
 
@@ -78,8 +68,6 @@ class FormUrlEncodedWriter {
 
     if (value != null) {
       _data[key] = valueMapper(value).toString();
-    } else {
-      _data[key] = null;
     }
   }
 
@@ -88,8 +76,6 @@ class FormUrlEncodedWriter {
 
     if (value != null) {
       _data[key] = value.toString();
-    } else {
-      _data[key] = null;
     }
   }
 
@@ -114,8 +100,6 @@ class FormUrlEncodedWriter {
 
     if (value != null) {
       _data[key] = valueMapper(value);
-    } else {
-      _data[key] = null;
     }
   }
 
@@ -131,8 +115,6 @@ class FormUrlEncodedWriter {
 
     if (value != null) {
       _data[key] = jsonEncode(valueMapper(value));
-    } else {
-      _data[key] = null;
     }
   }
 
