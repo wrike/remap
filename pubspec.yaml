@@ -1,5 +1,5 @@
 name: remap
-version: 1.0.2
+version: 1.0.1
 description: Map-based readers and writers for json and formurlencoded serialization and deserialization.
 
 authors:
@@ -9,4 +9,4 @@ authors:
 homepage: https://github.com/ranquild/remap
 
 environment:
-  sdk: '>=2.0.0 <3.0.0'
+  sdk: '>=2.0.0-dev <3.0.0'
